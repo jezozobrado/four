@@ -1,3 +1,4 @@
+import FourGame from "@/components/FourGame";
 import { fetchFour } from "@/lib/actions/four.actions";
 
 const page = async () => {
@@ -6,10 +7,9 @@ const page = async () => {
   if (!data) return;
   const answer = data[Math.floor(Math.random() * data.length)];
 
-  const answerArray = answer.fourByFour.map((a) => [...a.list, a.category]);
-  console.log("answeR", answerArray);
+  const rawSolution = answer.fourByFour.map((a) => [...a.list, a.category]);
 
-  return <div className="mt-28">{answer.fourByFour[0].category}</div>;
+  return <FourGame rawSolution={rawSolution} />;
 };
 
 export default page;
