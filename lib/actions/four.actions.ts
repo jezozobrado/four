@@ -1,13 +1,14 @@
+"use server";
 import Four from "../models/four.model";
-import { connectToDB } from "../mongoose";
+import connectToDB from "../mongoose";
 
-export async function createFour({ group, user }: any) {
+export async function createFour({ fourByFour }: any) {
+  connectToDB();
   try {
-    connectToDB();
-
-    const generatedFour = await Four.create({
-      group,
-      createdBy: user,
+    const x = await Four.create({
+      fourByFour,
     });
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 }

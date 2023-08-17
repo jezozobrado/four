@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import User from "./user.model";
 
 const FourSchema = new mongoose.Schema({
   category: { type: String, required: true },
@@ -7,11 +6,9 @@ const FourSchema = new mongoose.Schema({
 });
 
 const FourGroupSchema = new mongoose.Schema({
-  group: { type: [FourSchema], required: true },
-  createdBy: { type: User }, // make this required
+  fourByFour: { type: [FourSchema], required: true },
 });
 
-const Four =
-  mongoose.models.FourGroupSchema || mongoose.model("Four", FourGroupSchema);
+const Four = mongoose.models?.Four || mongoose.model("Four", FourGroupSchema);
 
 export default Four;

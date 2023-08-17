@@ -1,7 +1,19 @@
-import React from "react";
+"use client";
+import GenerateFour from "@/components/forms/GenerateFour";
+import { Button } from "@/components/ui/button";
+import connectToDB from "@/lib/mongoose";
 
-const page = () => {
-  return <div>page</div>;
+const page = async () => {
+  // connectToDB();
+  // return (
+  //   <Button
+  //     className="mt-28"
+
+  //   >
+  //     Click
+  //   </Button>
+  // );
+  return <GenerateFour />;
 };
 
 export default page;
