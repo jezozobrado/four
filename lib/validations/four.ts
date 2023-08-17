@@ -6,21 +6,6 @@ export const fourSchema = z.object({
 });
 
 export const fourByFourSchema = z.object({
-  fourByOne: z.string().refine((val) => val.split(",").length - 1 === 3, {
-    message: "Please enter four entries of the same category",
-  }),
-  // fourByTwo: z.string().refine((val) => val.split(",").length - 1 === 3, {
-  //   message: "Please enter four entries of the same category",
-  // }),
-  // fourByThree: z.string().refine((val) => val.split(",").length - 1 === 3, {
-  //   message: "Please enter four entries of the same category",
-  // }),
-  // fourByFour: z.string().refine((val) => val.split(",").length - 1 === 3, {
-  //   message: "Please enter four entries of the same category",
-  // }),
-});
-
-export const fourByFourSchema2 = z.object({
   aaa1: z.string().nonempty({ message: "This is required." }),
   aaa2: z.string().nonempty({ message: "This is required." }),
   aaa3: z.string().nonempty({ message: "This is required." }),

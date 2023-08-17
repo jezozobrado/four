@@ -1,13 +1,10 @@
 "use client";
 
 import { createFour } from "@/lib/actions/four.actions";
-import { counterMap } from "@/lib/constants";
-import { EFourIdentifier } from "@/lib/enum/four";
-import { fourByFourSchema2 } from "@/lib/validations/four";
+import { counterMap, defaultValuesFour, fourMap } from "@/lib/constants";
+import { fourByFourSchema } from "@/lib/validations/four";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
-
-import React from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import { z } from "zod";
 import { Button } from "../ui/button";
@@ -17,50 +14,25 @@ import { Input } from "../ui/input";
 const GenerateFour = () => {
   const router = useRouter();
 
-  const form = useForm<z.infer<typeof fourByFourSchema2>>({
-    resolver: zodResolver(fourByFourSchema2),
-    defaultValues: {
-      aaa1: "",
-      aaa2: "",
-      aaa3: "",
-      aaa4: "",
-      bbb1: "",
-      bbb2: "",
-      bbb3: "",
-      bbb4: "",
-      ccc1: "",
-      ccc2: "",
-      ccc3: "",
-      ccc4: "",
-      ddd1: "",
-      ddd2: "",
-      ddd3: "",
-      ddd4: "",
-      "aaa-category": "",
-      "bbb-category": "",
-      "ccc-category": "",
-      "ddd-category": "",
-    },
+  const form = useForm<z.infer<typeof fourByFourSchema>>({
+    resolver: zodResolver(fourByFourSchema),
+    defaultValues: defaultValuesFour,
   });
 
-  const handleSubmit = async (values: z.infer<typeof fourByFourSchema2>) => {
+  const handleSubmit = async (values: z.infer<typeof fourByFourSchema>) => {
     let fourByFour: { category?: string; list?: string[] }[] = [];
-    console.log("submit");
 
-    const fourMap = [
-      EFourIdentifier.first,
-      EFourIdentifier.second,
-      EFourIdentifier.third,
-      EFourIdentifier.fourth,
-    ];
-
+    // accepts object of words, filter by "aaa" etc
     fourMap.map((f) => {
       const oneCategory = Object.fromEntries(
         Object.entries(values).filter(([key, _]) => key.includes(f))
       );
       fourByFour.push({
-        category: Object.values(oneCategory).pop(),
-        list: Object.values(oneCategory)?.slice(0, -1).sort(),
+        category: Object.values(oneCategory).pop()?.toLowerCase(),
+        list: Object.values(oneCategory)
+          ?.slice(0, -1)
+          .sort()
+          .map((word) => word.toLowerCase()),
       });
     });
 
@@ -101,9 +73,11 @@ const GenerateFour = () => {
             />
           ))}
         </div>
-        <Button type="submit" className="mt-5">
-          Submit
-        </Button>
+        <div className="w-full flex justify-center">
+          <Button type="submit" className="mt-5">
+            Generate Custom Four
+          </Button>
+        </div>
       </form>
     </FormProvider>
   );

@@ -20,3 +20,28 @@ export const counterMap = [
   "ddd3",
   "ddd4",
 ];
+
+export const defaultValuesFour = {
+  aaa1: "",
+  aaa2: "",
+  aaa3: "",
+  aaa4: "",
+  bbb1: "",
+  bbb2: "",
+  bbb3: "",
+  bbb4: "",
+  ccc1: "",
+  ccc2: "",
+  ccc3: "",
+  ccc4: "",
+  ddd1: "",
+  ddd2: "",
+  ddd3: "",
+  ddd4: "",
+  "aaa-category": "",
+  "bbb-category": "",
+  "ccc-category": "",
+  "ddd-category": "",
+};
+
+export const fourMap = ["aaa", "bbb", "ccc", "ddd"];
