@@ -71,7 +71,7 @@ const FourGame = ({ rawSolution }: Props) => {
     }
   }, [shuffledSolution]);
 
-  useEffect(() => setSolution(rawSolution), []);
+  useEffect(() => setSolution(JSON.parse(JSON.stringify(rawSolution))), []);
 
   useEffect(() => {
     solution.map((s) => {

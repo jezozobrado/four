@@ -19,7 +19,7 @@
   @apply rounded-full border border-black bg-black py-1.5 px-5 text-white transition-all hover:bg-white hover:text-black text-center text-sm flex items-center justify-center disabled:pointer-events-none disabled:bg-gray-200 disabled:text-gray-500 disabled:border-gray-200;
 }
 
-/* .lightgreen {
+.lightgreen {
   @apply animate-wordle;
   --background: lightgreen;
 }
@@ -32,7 +32,7 @@
 .lightgray {
   @apply animate-wordle;
   --background: lightgray;
-} */
+}
 
 #line > div:nth-child(2) {
   animation-delay: var(--show-color-delay);

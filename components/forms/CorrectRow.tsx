@@ -14,6 +14,7 @@ const CorrectRow = ({ correctGuesses, rawSolution }: Props) => {
     2: "70px",
     3: "0px",
   };
+
   return (
     <>
       {correctGuesses.flat(0).map((words, i) => (
