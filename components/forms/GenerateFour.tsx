@@ -74,7 +74,7 @@ const GenerateFour = () => {
           ))}
         </div>
         <div className="w-full flex justify-center">
-          <Button type="submit" className="mt-5">
+          <Button type="submit" className="mt-5 ">
             Generate Custom Four
           </Button>
         </div>

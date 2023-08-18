@@ -6,7 +6,7 @@ import DefaultRow from "@/components/forms/DefaultRow";
 import useFourStore from "@/lib/store/guesses";
 import { useMemo, useState, useEffect } from "react";
 import { GoDotFill, GoDot } from "react-icons/go";
-import { Button } from "./ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 
 interface Props {
   rawSolution: string[][];
