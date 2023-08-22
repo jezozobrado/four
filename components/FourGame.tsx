@@ -88,7 +88,7 @@ const FourGame = ({ rawSolution }: Props) => {
         Create four groups of fours.
       </span>
       <div
-        className="grid grid-cols-4 grid-rows-4 w-[600px] m-auto gap-2 h-[300px]"
+        className="grid grid-cols-4 grid-rows-4 w-[95%] m-auto gap-2 h-[300px] sm:w-[600px]"
         id="container"
       >
         <CorrectRow correctGuesses={correctGuesses} rawSolution={rawSolution} />
