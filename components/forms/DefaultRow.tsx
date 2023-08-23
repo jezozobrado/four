@@ -18,6 +18,8 @@ const DefaultRow = ({ shuffledSolution }: Props) => {
 
     if (tile.style.backgroundColor === "gray") {
       tile.style.removeProperty("background-color");
+      // tile.style.removeProperty("color");
+      tile.style.color = "black";
       tile.style.animation = "mouseDown 0.15s";
       popGuesses(word);
       return;
@@ -27,6 +29,7 @@ const DefaultRow = ({ shuffledSolution }: Props) => {
 
     tile.style.animation = "mouseDown 0.15s";
     tile.style.backgroundColor = "gray";
+    tile.style.color = "white";
     setGuesses(word);
   };
 
@@ -42,7 +45,7 @@ const DefaultRow = ({ shuffledSolution }: Props) => {
         <div
           key={i}
           id={word}
-          className="border flex justify-center items-center rounded-md cursor-pointer"
+          className="border flex justify-center items-center rounded-md cursor-pointer font-semibold"
           onAnimationEnd={() => handleAnimationEnd(word)}
           onClick={() => handleClick(word)}
         >

@@ -21,10 +21,10 @@ const CorrectRow = ({ correctGuesses, rawSolution }: Props) => {
         <div
           key={i}
           id={String(i)}
-          className={`flex justify-center items-center content-center rounded-md col-span-4 flex-col `}
+          className={`flex justify-center items-center content-center rounded-md col-span-4 flex-col`}
           style={
             {
-              animation: "correctAnimation 0.8s",
+              animation: "correctAnimation 1.2s",
               "--movementY": animationMap[i],
             } as React.CSSProperties
           }
