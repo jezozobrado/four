@@ -18,7 +18,7 @@ import * as _ from "lodash";
 import { timer } from "@/lib/utils";
 import { useMemo, useState, useEffect } from "react";
 
-import { toast, ToastContainer } from "react-toastify";
+import { Slide, toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Timer from "./shared/Timer";
 import { useRouter } from "next/navigation";
@@ -67,7 +67,7 @@ const FourGame = ({ rawSolution }: Props) => {
       if (checkIfOneAway(guesses, solution)) {
         toast("One away!", {
           position: "bottom-center",
-          autoClose: 3000,
+          autoClose: 600,
           hideProgressBar: true,
           closeOnClick: true,
           pauseOnHover: true,
@@ -75,6 +75,7 @@ const FourGame = ({ rawSolution }: Props) => {
           progress: undefined,
           theme: "dark",
           style: { height: "30px" },
+          transition: Slide,
         });
       }
 
@@ -182,7 +183,7 @@ const FourGame = ({ rawSolution }: Props) => {
           </div>
         )}
         <div className="flex w-full justify-center items-center mt-5 gap-2">
-          {!isPlayAgainVisible && (
+          {!isPlayAgainVisible ? (
             <Button
               disabled={
                 guesses.length !== 4 || !attempts || correctGuesses.length === 4
@@ -193,9 +194,7 @@ const FourGame = ({ rawSolution }: Props) => {
             >
               Submit
             </Button>
-          )}
-
-          {isPlayAgainVisible && (
+          ) : (
             <Button
               disabled={!!attempts}
               onClick={() => {
