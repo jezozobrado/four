@@ -52,7 +52,7 @@ const GenerateFour = () => {
         onSubmit={form.handleSubmit(handleSubmit)}
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-2xl m-0 p-0 w-full"
       >
-        <div className="flex gap-2 white flex-wrap justify-evenly ">
+        <div className="flex gap-2 white flex-wrap justify-evenly">
           {counter.map((f: any) => (
             <FormField
               control={form.control}

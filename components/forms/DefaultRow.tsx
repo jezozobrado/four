@@ -1,6 +1,7 @@
 "use client";
 
 import useFourStore from "@/lib/store/guesses";
+import { motion } from "framer-motion";
 
 interface Props {
   shuffledSolution?: string[];
@@ -18,7 +19,7 @@ const DefaultRow = ({ shuffledSolution }: Props) => {
 
     if (tile.style.backgroundColor === "gray") {
       tile.style.removeProperty("background-color");
-      // tile.style.removeProperty("color");
+      tile.style.removeProperty("color");
       tile.style.color = "black";
       tile.style.animation = "mouseDown 0.15s";
       popGuesses(word);

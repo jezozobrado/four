@@ -1,4 +1,4 @@
-import mongoose, { InferSchemaType, Model } from "mongoose";
+import mongoose from "mongoose";
 
 export interface IFour {
   category: string;
